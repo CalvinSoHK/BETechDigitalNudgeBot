@@ -22,16 +22,24 @@ class SlackHelper:
     def get_name_by_id(self, my_id):
         return [user['name'] for user in self.user_map.values() if user['id'] == my_id][0]
 
-    def send_message(self, msg, username, channel, icon_url, as_user = False):
+    def send_message(self, msg, channel, icon_url, as_user = False):
         return self.sc.api_call(
             'chat.postMessage',
-            username=username,
             as_user=as_user,
             channel=channel,
             icon_url=icon_url,
             text=msg,
             link_names=1,
             parse='full',
+            )
+
+    def schedule_message(self, msg, channel, post_time):
+        return self.sc.api_call(
+            'chat.scheduleMessage',
+            channel = channel,
+            text = msg,
+            as_user = True,
+            post_at = post_time,
             )
 
     def execute_command(self, msg, username, channel, icon_url, as_user = False):

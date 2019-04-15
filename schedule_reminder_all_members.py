@@ -11,7 +11,8 @@ if __name__ == '__main__':
         exit()
 
     channel_name = sys.argv[1].replace('#', '')
-    message = sys.argv[2]
+    post_at = sys.argv[2]
+    message = sys.argv[3]
 
 
     sh = SlackHelper(config.SLACK_TOKEN)
@@ -21,17 +22,8 @@ if __name__ == '__main__':
     for member_id in channel_members:
         username = sh.get_name_by_id(member_id)
         print 'Sending to {0}'.format(username)
-        print sh.send_message(
+        print sh.schedule_message(
             msg=message,
-            as_user=True,
             channel=member_id,
-            icon_url=None,
+            post_time = post_at,
         )
-
-    # for member_id in channel_members:
-    #     print sh.set_reminder(
-    #         reminder = message,
-    #         date = date,
-    #         user_id = member_id,
-    #         )
-
