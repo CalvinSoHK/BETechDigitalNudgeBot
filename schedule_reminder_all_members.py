@@ -19,12 +19,11 @@ if __name__ == '__main__':
     sh = SlackHelper(config.SLACK_TOKEN, config.OTHER_TOKEN)
     channel_members = sh.get_channel_members('#' + channel_name)
     time = sh.convert_date_to_unix(post_at)
-    print(time)
 
     # Below is the code for sending messages to everyone
     for member_id in channel_members:
         username = sh.get_name_by_id(member_id)
-        print 'Sending to {0}'.format(username)
+        print ('Sending to {0}'.format(username))
         print (sh.schedule_reminders(
             msg=message,
             user=member_id,

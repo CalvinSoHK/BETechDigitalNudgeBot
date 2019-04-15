@@ -4,7 +4,6 @@ import config
 from slack_helper import SlackHelper
 import sys
 from datetime import datetime
-import util
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
@@ -22,9 +21,9 @@ if __name__ == '__main__':
     # Below is the code for sending messages to everyone
     for member_id in channel_members:
         username = sh.get_name_by_id(member_id)
-        print 'Sending to {0}'.format(username)
-        print sh.schedule_message(
+        print ('Sending to {0}'.format(username))
+        print (sh.schedule_message(
             msg=message,
             channel=member_id,
             post_time = sh.convert_date_to_unix(post_at),
-        )
+        ))

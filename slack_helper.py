@@ -50,10 +50,10 @@ class SlackHelper:
 
     def schedule_message(self, msg, channel, post_time):
         return self.sc_bot.api_call(
-            'chat.sc_botheduleMessage',
+            'chat.scheduleMessage',
             channel = channel,
             text = msg,
-            as_user = True,
+            as_user = False,
             post_at = post_time,
             )
 
