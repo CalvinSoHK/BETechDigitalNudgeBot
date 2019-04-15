@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# Comes from: https://github.com/dangoldin/automating-management. Some changes made.
 from slackclient import SlackClient
 import time
 import datetime

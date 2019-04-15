@@ -7,15 +7,15 @@ from datetime import datetime
 import util
 
 if __name__ == '__main__':
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         print ('Please specify channel and message')
         exit()
 
-    channel_name = 'general'
-    post_at = sys.argv[1]
-    message = sys.argv[2]
+    channel_name = sys.argv[1]
+    post_at = sys.argv[2]
+    message = sys.argv[3]
 
-    sh = SlackHelper(config.SLACK_TOKEN, config.OTHER_TOKEN)
+    sh = SlackHelper(config.BOT_USER_TOKEN, config.OAUTH_USER_TOKEN)
     channel_members = sh.get_channel_members('#' + channel_name)
 
     # Below is the code for sending messages to everyone
