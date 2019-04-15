@@ -99,5 +99,8 @@ config.env
 # Project files
 .vscode/
 
+# Mac library files
+.DS_Store
+
 # Generated files
 issues.csv

@@ -15,7 +15,6 @@ if __name__ == '__main__':
     post_at = sys.argv[1]
     message = sys.argv[2]
 
-
     sh = SlackHelper(config.SLACK_TOKEN, config.OTHER_TOKEN)
     channel_members = sh.get_channel_members('#' + channel_name)
     time = sh.convert_date_to_unix(post_at)
