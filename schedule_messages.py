@@ -4,13 +4,15 @@ import config
 from slack_helper import SlackHelper
 import sys
 from datetime import datetime
+import util
 
 if __name__ == '__main__':
-    if len(sys.argv) != 4:
+    if len(sys.argv) != 3:
         print 'Please specify channel and message'
         exit()
 
-    channel_name = sys.argv[1].replace('#', '')
+    channel_name = 'general'
+    post_at = sys.argv[1]
     message = sys.argv[2]
 
 
@@ -21,17 +23,8 @@ if __name__ == '__main__':
     for member_id in channel_members:
         username = sh.get_name_by_id(member_id)
         print 'Sending to {0}'.format(username)
-        print sh.send_message(
+        print sh.schedule_message(
             msg=message,
-            as_user=True,
             channel=member_id,
-            icon_url=None,
+            post_time = sh.convert_date_to_unix(post_at),
         )
-
-    # for member_id in channel_members:
-    #     print sh.set_reminder(
-    #         reminder = message,
-    #         date = date,
-    #         user_id = member_id,
-    #         )
-
