@@ -7,7 +7,7 @@ from datetime import datetime
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print 'Please specify channel and message'
+        print ('Please specify channel and message')
         exit()
 
     channel_name = 'general'

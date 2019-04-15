@@ -8,7 +8,7 @@ import util
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
-        print 'Please specify channel and message'
+        print ('Please specify channel and message')
         exit()
 
     channel_name = 'general'
@@ -17,7 +17,6 @@ if __name__ == '__main__':
 
     sh = SlackHelper(config.SLACK_TOKEN, config.OTHER_TOKEN)
     channel_members = sh.get_channel_members('#' + channel_name)
-    time = sh.convert_date_to_unix(post_at)
 
     # Below is the code for sending messages to everyone
     for member_id in channel_members:
@@ -26,5 +25,5 @@ if __name__ == '__main__':
         print (sh.schedule_reminders(
             msg=message,
             user=member_id,
-            time=time,
+            time=post_at,
         ))
