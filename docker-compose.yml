@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  automating_management:
+    env_file:
+      - config.env
+    image: automating_management:dev
+    container_name: automating_management
+    build:
+      context: .
