@@ -37,7 +37,7 @@ rangeset==0.0.5
 requests==2.21.0
 requests-oauthlib==1.2.0
 requests-toolbelt==0.8.0
-rsa==3.4.2
+rsa==4.7
 simplejson==3.8.2
 singledispatch==3.4.0.3
 six==1.12.0
