@@ -29,7 +29,7 @@ pyasn1==0.1.9
 pyasn1-modules==0.0.8
 pycparser==2.19
 PyGithub==1.37
-PyJWT==1.7.1
+PyJWT==2.4.0
 pylint==1.7.4
 pyparsing==2.1.10
 python-dateutil==2.5.3
